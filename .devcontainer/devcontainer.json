@@ -1,0 +1,8 @@
+{
+  "image": "ghcr.io/devcontainers/templates/cpp:3.0.2",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {},
+    "ghcr.io/jungaretti/features/make:1": {},
+    "ghcr.io/devcontainers/features/python:1": {}
+  }
+}
