@@ -9,9 +9,20 @@ public class Main {
 
   public static final void main(String[] args) {
     System.out.print("Ingrese el numero maximo: ");
-    int max = scanner.nextInt();
-    System.out.println(Arrays.toString(fibbonnaci(max)));
-    System.out.println(Arrays.toString(fibbonnaciOriginal(max)));
+    final int max = scanner.nextInt();
+    final int[] fib = fibbonnaci(max);
+    final int[] fibTao = (int[]) fibbonnaciTao(max);
+
+    if (fib.length == fibTao.length) {
+      System.out.println("OK");
+      return;
+    }
+
+    for (int i = 0; i < fib.length; i ++) {
+      if (Arrays.binarySearch(fibTao, fib[i]) < 0) {
+        System.out.println(fib[i]);
+      }
+    }
   }
 
   public static final int[] fibbonnaci(final int max) {
@@ -27,7 +38,7 @@ public class Main {
     return Arrays.copyOf(fibbonnaci, Arrays.stream(fibbonnaci).filter(i -> i != 0).toArray().length);
   }
 
-  public static final Integer[] fibbonnaciOriginal(final int n) {
+  public static final int[] fibbonnaciTao(final int n) {
     int s = 1;
     int t = 1;
     final List<Integer> fibbonnaci = new ArrayList<>();
@@ -50,6 +61,6 @@ public class Main {
       }
     }
 
-    return fibbonnaci.toArray(Integer[]::new);
+    return fibbonnaci.stream().mapToInt(Integer::intValue).toArray();
   }
 }
