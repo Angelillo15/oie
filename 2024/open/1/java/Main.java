@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
   private static final Scanner scanner = new Scanner(System.in);
 
-  public static final void main(String[] args) {
+  public static void main(String[] args) {
     System.out.print("Ingrese el numero maximo: ");
     final int max = scanner.nextInt();
     final int[] fib = fibbonnaci(max);
